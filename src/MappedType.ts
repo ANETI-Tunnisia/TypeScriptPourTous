@@ -1,5 +1,5 @@
 type props="prop1"|"prop2" |"prop3"
-type MyMappedType<T>={
-  readonly  [P in keyof T]?:T[P] | null;
+type Mypick<T,Props extends keyof T>={
+    [P in Props]:T[P];
 }
-type MyType=MyMappedType<{color:"green",price:200}>;
+type NewType=Mypick<{color:"green",price:200,name;"pen"},"price">;
