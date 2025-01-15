@@ -1,5 +1,5 @@
 type props="prop1"|"prop2" |"prop3"
-type MyMappedType<props extends string | number | symbol>={
-    [P in props]:P;
+type MyMappedType<T>={
+  readonly  [P in keyof T]?:T[P] | null;
 }
-type MyType=MyMappedType<props>;
+type MyType=MyMappedType<{color:"green",price:200}>;
